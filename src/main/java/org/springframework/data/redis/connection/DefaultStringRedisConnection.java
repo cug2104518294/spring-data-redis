@@ -159,7 +159,6 @@ public class DefaultStringRedisConnection implements StringRedisConnection, Deco
 	 * @param serializer String serializer
 	 */
 	public DefaultStringRedisConnection(RedisConnection connection, RedisSerializer<String> serializer) {
-
 		Assert.notNull(connection, "connection is required");
 		Assert.notNull(serializer, "serializer is required");
 

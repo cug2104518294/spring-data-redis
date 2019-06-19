@@ -50,7 +50,8 @@ public class AbstractRedisCollectionUnitTests {
 
 		redisTemplateSpy = spy(new RedisTemplate() {
 
-			public Boolean hasKey(Object key) {
+			@Override
+            public Boolean hasKey(Object key) {
 				return false;
 			}
 		});

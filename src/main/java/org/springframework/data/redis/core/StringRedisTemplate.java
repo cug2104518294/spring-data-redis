@@ -57,6 +57,7 @@ public class StringRedisTemplate extends RedisTemplate<String, String> {
 		afterPropertiesSet();
 	}
 
+	@Override
 	protected RedisConnection preProcessConnection(RedisConnection connection, boolean existingConnection) {
 		return new DefaultStringRedisConnection(connection);
 	}

@@ -49,9 +49,7 @@ class DefaultValueOperations<K, V> extends AbstractOperations<K, V> implements V
 	 */
 	@Override
 	public V get(Object key) {
-
 		return execute(new ValueDeserializingRedisCallback(key) {
-
 			@Override
 			protected byte[] inRedis(byte[] rawKey, RedisConnection connection) {
 				return connection.get(rawKey);

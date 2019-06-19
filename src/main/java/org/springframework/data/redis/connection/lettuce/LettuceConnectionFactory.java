@@ -841,7 +841,8 @@ public class LettuceConnectionFactory
 	 *
 	 * @return Whether or not to convert pipeline and tx results.
 	 */
-	public boolean getConvertPipelineAndTxResults() {
+	@Override
+    public boolean getConvertPipelineAndTxResults() {
 		return convertPipelineAndTxResults;
 	}
 

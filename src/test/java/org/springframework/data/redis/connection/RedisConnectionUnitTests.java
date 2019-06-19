@@ -126,7 +126,8 @@ public class RedisConnectionUnitTests {
 			delegate.multi();
 		}
 
-		public Long rPush(byte[] key, byte[]... values) {
+		@Override
+        public Long rPush(byte[] key, byte[]... values) {
 			return delegate.rPush(key, values);
 		}
 
@@ -142,7 +143,8 @@ public class RedisConnectionUnitTests {
 			return delegate.sAdd(key, values);
 		}
 
-		public Boolean exists(byte[] key) {
+		@Override
+        public Boolean exists(byte[] key) {
 			return delegate.exists(key);
 		}
 
@@ -170,6 +172,7 @@ public class RedisConnectionUnitTests {
 			return delegate.scriptLoad(script);
 		}
 
+		@Override
 		public byte[] getSet(byte[] key, byte[] value) {
 			return delegate.getSet(key, value);
 		}
@@ -178,7 +181,8 @@ public class RedisConnectionUnitTests {
 			return delegate.exec();
 		}
 
-		public Long lPush(byte[] key, byte[]... value) {
+		@Override
+        public Long lPush(byte[] key, byte[]... value) {
 			return delegate.lPush(key, value);
 		}
 
@@ -186,7 +190,8 @@ public class RedisConnectionUnitTests {
 			return delegate.del(keys);
 		}
 
-		public void close() throws DataAccessException {
+		@Override
+        public void close() throws DataAccessException {
 			super.close();
 		}
 
@@ -214,14 +219,17 @@ public class RedisConnectionUnitTests {
 			delegate.bgReWriteAof();
 		}
 
+		@Override
 		public List<byte[]> mGet(byte[]... keys) {
 			return delegate.mGet(keys);
 		}
 
+		@Override
 		public boolean isClosed() {
 			return delegate.isClosed();
 		}
 
+		@Override
 		public Long rPushX(byte[] key, byte[] value) {
 			return delegate.rPushX(key, value);
 		}
@@ -250,6 +258,7 @@ public class RedisConnectionUnitTests {
 			delegate.discard();
 		}
 
+		@Override
 		public Object getNativeConnection() {
 			return delegate.getNativeConnection();
 		}
@@ -340,6 +349,7 @@ public class RedisConnectionUnitTests {
 			return delegate.hGet(key, field);
 		}
 
+		@Override
 		public Long lPushX(byte[] key, byte[] value) {
 			return delegate.lPushX(key, value);
 		}
@@ -384,6 +394,7 @@ public class RedisConnectionUnitTests {
 			return delegate.zRem(key, values);
 		}
 
+		@Override
 		public Long lLen(byte[] key) {
 			return delegate.lLen(key);
 		}
@@ -412,6 +423,7 @@ public class RedisConnectionUnitTests {
 			return delegate.evalSha(scriptSha, returnType, numKeys, keysAndArgs);
 		}
 
+		@Override
 		public List<byte[]> lRange(byte[] key, long begin, long end) {
 			return delegate.lRange(key, begin, end);
 		}
@@ -452,6 +464,7 @@ public class RedisConnectionUnitTests {
 			delegate.flushAll();
 		}
 
+		@Override
 		public void lTrim(byte[] key, long begin, long end) {
 			delegate.lTrim(key, begin, end);
 		}
@@ -476,6 +489,7 @@ public class RedisConnectionUnitTests {
 			return delegate.info();
 		}
 
+		@Override
 		public void openPipeline() {
 			delegate.openPipeline();
 		}
@@ -484,6 +498,7 @@ public class RedisConnectionUnitTests {
 			return delegate.mSet(tuple);
 		}
 
+		@Override
 		public byte[] lIndex(byte[] key, long index) {
 			return delegate.lIndex(key, index);
 		}
@@ -512,6 +527,7 @@ public class RedisConnectionUnitTests {
 			return delegate.mSetNX(tuple);
 		}
 
+		@Override
 		public Long lInsert(byte[] key, Position where, byte[] pivot, byte[] value) {
 			return delegate.lInsert(key, where, pivot, value);
 		}
@@ -560,6 +576,7 @@ public class RedisConnectionUnitTests {
 			return delegate.getConfig(pattern);
 		}
 
+		@Override
 		public void lSet(byte[] key, long index, byte[] value) {
 			delegate.lSet(key, index, value);
 		}
@@ -580,6 +597,7 @@ public class RedisConnectionUnitTests {
 			return delegate.hLen(key);
 		}
 
+		@Override
 		public List<Object> closePipeline() throws RedisPipelineException {
 			return delegate.closePipeline();
 		}
@@ -592,6 +610,7 @@ public class RedisConnectionUnitTests {
 			return delegate.pExpireAt(key, unixTimeInMillis);
 		}
 
+		@Override
 		public Long lRem(byte[] key, long count, byte[] value) {
 			return delegate.lRem(key, count, value);
 		}
@@ -628,6 +647,7 @@ public class RedisConnectionUnitTests {
 			return delegate.persist(key);
 		}
 
+		@Override
 		public byte[] lPop(byte[] key) {
 			return delegate.lPop(key);
 		}
@@ -660,6 +680,7 @@ public class RedisConnectionUnitTests {
 			return delegate.sRandMember(key);
 		}
 
+		@Override
 		public byte[] rPop(byte[] key) {
 			return delegate.rPop(key);
 		}
@@ -688,6 +709,7 @@ public class RedisConnectionUnitTests {
 			return delegate.pTtl(key, timeUnit);
 		}
 
+		@Override
 		public List<byte[]> bLPop(int timeout, byte[]... keys) {
 			return delegate.bLPop(timeout, keys);
 		}
@@ -724,6 +746,7 @@ public class RedisConnectionUnitTests {
 			return delegate.sort(key, params);
 		}
 
+		@Override
 		public List<byte[]> bRPop(int timeout, byte[]... keys) {
 			return delegate.bRPop(timeout, keys);
 		}
@@ -752,6 +775,7 @@ public class RedisConnectionUnitTests {
 			delegate.slaveOf(host, port);
 		}
 
+		@Override
 		public byte[] rPopLPush(byte[] srcKey, byte[] dstKey) {
 			return delegate.rPopLPush(srcKey, dstKey);
 		}
@@ -776,6 +800,7 @@ public class RedisConnectionUnitTests {
 			delegate.restore(key, ttlInMillis, serializedValue, replace);
 		}
 
+		@Override
 		public byte[] bRPopLPush(int timeout, byte[] srcKey, byte[] dstKey) {
 			return delegate.bRPopLPush(timeout, srcKey, dstKey);
 		}

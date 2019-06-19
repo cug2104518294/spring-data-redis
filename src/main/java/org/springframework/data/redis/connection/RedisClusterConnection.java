@@ -97,7 +97,8 @@ public interface RedisClusterConnection extends RedisConnection, RedisClusterCom
 	 * @return never {@literal null}.
 	 * @since 2.0
 	 */
-	default RedisClusterServerCommands serverCommands() {
+	@Override
+    default RedisClusterServerCommands serverCommands() {
 		return this;
 	}
 }
